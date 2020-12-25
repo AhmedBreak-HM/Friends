@@ -1,0 +1,41 @@
+
+GET http://localhost:5000/api/values/ HTTP/1.1
+Content-Type: application/json
+
+{
+    "Authorization": Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIyIiwidW5pcXVlX25hbWUiOiJhaG1lZCIsIm5iZiI6MTYwODg4MTQyNywiZXhwIjoxNjA4OTY3ODI3LCJpYXQiOjE2MDg4ODE0Mjd9.gbBiACdGj0hiWJ9J8Z_Kl9JdKnkJLbP_yrBzwuwvYvsB7_BjrmPSE8phmUlM8k1FYNZOBcoWXLDFwjaI7Hb-Uw
+}
+###
+### POST url HTTP/1.1
+
+POST http://localhost:5000/api/values HTTP/1.1
+content-type: application/json
+
+{
+    "Name": "value1",
+}
+###/////// Auth Controller
+GET http://localhost:5000/api/Auth HTTP/1.1
+Content-Type: application/json
+### POST url HTTP/1.1
+
+POST http://localhost:5000/api/Auth/register HTTP/1.1
+content-type: application/json
+
+{
+    "userName": "ahmed",
+    "Password": "123456",
+}
+
+
+### login url HTTP/1.1
+
+POST http://localhost:5000/api/Auth/login HTTP/1.1
+content-type: application/json
+
+{
+    "UserName": "ahmed",
+    "Password": "123456",
+}
+
+

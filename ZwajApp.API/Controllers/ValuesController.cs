@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ZwajApp.API.Models;
 
 namespace zwaj.API.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ValuesController : ControllerBase
@@ -25,6 +27,7 @@ namespace zwaj.API.Controllers
             return Ok(values);
         }
 
+        [AllowAnonymous]
         // GET api/values/5
         [HttpGet("{id}")]
         public ActionResult<Value> GetValue(int id)
@@ -32,11 +35,19 @@ namespace zwaj.API.Controllers
             var value = _context.values.FirstOrDefault(x => x.id == id);
             return Ok(value);
         }
-
+        
+        [AllowAnonymous]
         // POST api/values
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<IActionResult> Create(string value)
         {
+            var Value = new Value(){
+                Name = value
+
+            };
+            await _context.values.AddAsync(Value);
+            await _context.SaveChangesAsync();
+            return StatusCode(201);
         }
 
         // PUT api/values/5

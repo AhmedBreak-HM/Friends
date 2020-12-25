@@ -9,8 +9,8 @@ using ZwajApp.API.Models;
 namespace zwaj.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20201223014834_CreateUser")]
-    partial class CreateUser
+    [Migration("20201224075726_CreateedDB")]
+    partial class CreateedDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
