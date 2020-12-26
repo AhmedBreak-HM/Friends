@@ -1,0 +1,29 @@
+<nav class="rtl navbar navbar-expand-md navbar-dark bg-dark">
+  <a  style="margin-top:-4px;color:pink;font-family:ToyorAljanah;font-size:2.25rem;font-weight:bolder" class="navbar-brand"
+    [routerLink]="['/members']"><i class="fa fa-heart" aria-hidden="true"></i>زواج<i class="fa fa-heart" aria-hidden="true"></i></a>  <!-- <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+      aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button> -->
+  <div class="collapse navbar-collapse" id="collapsibleNavId">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0" style="letter-spacing:0.5px;font-weight:bold;font-family:'JF Flat';font-size:1.2rem">
+      <li class="nav-item active">
+        <a class="nav-link" href="">الرئيسية <span class="sr-only"></span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="">بحث</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="">تواصل</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="">دردشة</a>
+      </li>
+
+    </ul>
+    <form class="form-inline my-2 my-lg-0" #logInForm="ngForm" (ngSubmit)="logIn()" >
+      <input required name="userName" class="form-control mr-sm-2" type="text" placeholder="اسم المشترك" [(ngModel)]="model.userName">
+      <input required name="Password" class="form-control mr-sm-2" type="text" placeholder="كلمة السر" [(ngModel)]="model.Password">
+      <button [disabled]="logInForm.invalid" style="font-weight:bold;font-family:'JF Flat';font-size:1.0rem" class="btn btn-secondary my-2 my-sm-0 " type="submit">تفضل بالدخول</button>
+    </form>
+  </div>
+</nav>
