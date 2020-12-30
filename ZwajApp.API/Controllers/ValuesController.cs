@@ -19,6 +19,7 @@ namespace zwaj.API.Controllers
         {
             _context = context;
         }
+        [AllowAnonymous]
         // GET api/values
         [HttpGet]
         public ActionResult GetValues()
