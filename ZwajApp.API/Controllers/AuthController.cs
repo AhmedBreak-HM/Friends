@@ -52,6 +52,7 @@ namespace zwaj.API.Controllers
 
         [HttpPost("login")]
         public async Task<IActionResult> LogIn(UserForLoginDto userForLoginDto) {
+            throw new Exception("Api sayes noooooooo!");
             var user = await _Repo.logIn(userForLoginDto.UserName.ToLower(), userForLoginDto.Password);
             if (user == null) return Unauthorized();
             var claims = new[]{
