@@ -1,31 +1,34 @@
 <nav class="rtl navbar navbar-expand-md navbar-dark bg-dark">
-  <a  style="margin-top:-4px;color:pink;font-family:ToyorAljanah;font-size:2.25rem;font-weight:bolder" class="navbar-brand"
-    [routerLink]="['/members']"><i class="fa fa-heart" aria-hidden="true"></i>زواج<i class="fa fa-heart" aria-hidden="true"></i></a>  <!-- <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+  <a style="margin-top:-4px;color:pink;font-family:ToyorAljanah;font-size:2.25rem;font-weight:bolder"
+    class="navbar-brand" [routerLink]="['/members']"><i class="fa fa-heart" aria-hidden="true"></i>زواج<i
+      class="fa fa-heart" aria-hidden="true"></i></a>
+  <!-- <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
       aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button> -->
   <div class="collapse navbar-collapse" id="collapsibleNavId">
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0" style="letter-spacing:0.5px;font-weight:bold;font-family:'JF-Flat';font-size:1.2rem">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0"
+      style="letter-spacing:0.5px;font-weight:bold;font-family:'JF-Flat';font-size:1.2rem">
       <li class="nav-item active">
-        <a class="nav-link" >الرئيسية <span class="sr-only"></span></a>
+        <a class="nav-link">الرئيسية <span class="sr-only"></span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" >بحث</a>
+        <a class="nav-link">بحث</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" >تواصل</a>
+        <a class="nav-link">تواصل</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" >دردشة</a>
+        <a class="nav-link">دردشة</a>
       </li>
       <li class="nav-item" *ngIf="loggedIn()">
-        <a class="nav-link"  (click)="loggedOut()">خروج</a>
+        <a class="nav-link" (click)="loggedOut()">خروج</a>
       </li>
     </ul>
     <div class="dropdown">
-      <a  *ngIf="loggedIn()" style="letter-spacing:0.5px;font-weight:bold;font-family:'JF-Flat';font-size:1.2rem"
-        class="dropdown-toggle text-light nav-link">مرحبا بك</a>
-      <div class="dropdown-menu" >
+      <a *ngIf="loggedIn()" style="letter-spacing:0.5px;font-weight:bold;font-family:'JF-Flat';font-size:1.2rem"
+        class="dropdown-toggle text-light nav-link">مرحبا بك {{displayName|titlecase}}</a>
+      <div class="dropdown-menu">
         <a class="dropdown-item" href="#"><i class="fa fa-user-o" aria-hidden="true"></i>
           ملفى الشخصى</a>
         <div class="dropdown-divider"></div>
@@ -37,10 +40,13 @@
 
       </div>
     </div>
-    <form *ngIf="!loggedIn()" class="form-inline my-2 my-lg-0" #logInForm="ngForm" (ngSubmit)="logIn()" >
-      <input required name="userName" class="form-control mr-sm-2" type="text" placeholder="اسم المشترك" [(ngModel)]="model.userName">
-      <input required name="Password" class="form-control mr-sm-2" type="text" placeholder="كلمة السر" [(ngModel)]="model.Password">
-      <button [disabled]="logInForm.invalid" style="font-weight:bold;font-family:'JF-Flat';font-size:1.0rem" class="btn btn-secondary my-2 my-sm-0 " type="submit">تفضل بالدخول</button>
+    <form *ngIf="!loggedIn()" class="form-inline my-2 my-lg-0" #logInForm="ngForm" (ngSubmit)="logIn()">
+      <input required name="userName" class="form-control mr-sm-2" type="text" placeholder="اسم المشترك"
+        [(ngModel)]="model.userName">
+      <input type="password" required name="Password" class="form-control mr-sm-2" placeholder="كلمة السر"
+        [(ngModel)]="model.Password">
+      <button [disabled]="logInForm.invalid" style="font-weight:bold;font-family:'JF-Flat';font-size:1.0rem"
+        class="btn btn-secondary my-2 my-sm-0 " type="submit">تفضل بالدخول</button>
     </form>
   </div>
 </nav>

@@ -9,24 +9,28 @@ import { AuthService } from '../services/auth.service';
 })
 export class NavComponent implements OnInit {
   model: any = {userName: '', Password: ''};
+  displayName: string;
 
   constructor(private authService: AuthService, private alertify: AlertifyService) { }
 
   ngOnInit() {
+    this.displayName = this.authService.decodedUser().unique_name;
   }
   logIn() {
     this.authService.logIn(this.model).subscribe(
-      next => this.alertify.success('تم تسجيل الدخول بنجاح'),
+      next => {
+        this.alertify.success('تم تسجيل الدخول بنجاح');
+        this.displayName = this.authService.decodedUser().unique_name;
+      },
       error => this.alertify.error('فشل فى الدخول')
       );
   }
   loggedIn(): boolean {
-    const token = localStorage.getItem('token');
-    return !! token;
+    return ! this.authService.isUser();
   }
   loggedOut() {
     localStorage.removeItem('token');
-    console.log('logout don !');
   }
+
 
 }
